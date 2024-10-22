@@ -18,7 +18,7 @@
     display: grid;
     row-gap: 25px;
     grid-template-areas: "title" "cards" "table" "charts";
-    grid-template-rows: min-content;
+    grid-template-rows: min-content min-content 70vh;
 }
 
 .logo {
