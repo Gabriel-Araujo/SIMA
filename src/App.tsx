@@ -2,132 +2,16 @@ import "./App.css";
 import { Cards, DataTable } from "./components";
 import { Measurement } from "./lib/types";
 import { columns } from "./components/shared/measurements-table/columns";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getMeasurements } from "./utils/services/measurements-services";
 
-const testValues: Measurement[] = [
-  {
-    id: "ST-1",
-    measurement_type: "Temperatura",
-    measurement: "Temperatura em 25ºC",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SVZ-1",
-    measurement_type: "Vazão",
-    measurement: "Vazão de entrada é 300 m³/h",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-  {
-    id: "SV-1",
-    measurement_type: "volume",
-    measurement: "Volume de água baixo",
-    timestamp: Date.now(),
-  },
-];
 function App() {
-  const [measurements, setMeasurements] = useState(testValues);
+  const [measurements, setMeasurements] = useState<Measurement[]>([]);
+
+  useEffect(() => {
+    getMeasurements().then((data) => setMeasurements(data));
+  }, []);
+
   return (
     <>
       <div className="header border-b"></div>

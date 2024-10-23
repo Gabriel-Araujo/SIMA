@@ -4,12 +4,14 @@ export const columns = [
   {
     accessorKey: "id",
     header: () => <div className="text-center">Id</div>,
-    cell: ({ row }) => <div className="text-center">{row.getValue("id")}</div>,
+    cell: ({ row }: any) => (
+      <div className="text-center">{row.getValue("id")}</div>
+    ),
   },
   {
     accessorKey: "measurement_type",
     header: () => <div className="text-center">Tipo</div>,
-    cell: ({ row }) => {
+    cell: ({ row }: any) => {
       const value = row.getValue("measurement_type");
       return (
         <div className="grid justify-center ">
@@ -27,14 +29,14 @@ export const columns = [
   {
     accessorKey: "measurement",
     header: () => <div className="text-center w-max">Medição</div>,
-    cell: ({ row }) => (
+    cell: ({ row }: any) => (
       <div className="text-center w-max">{row.getValue("measurement")}</div>
     ),
   },
   {
     accessorKey: "timestamp",
     header: () => <div className="text-center">Ocorrência</div>,
-    cell: ({ row }) => {
+    cell: ({ row }: any) => {
       const date = new Date(row.getValue("timestamp"));
       return <div className="text-center">{date.toLocaleString()}</div>;
     },
