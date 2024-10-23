@@ -1,8 +1,8 @@
 import "./App.css";
 import { Cards, DataTable } from "./components";
-import { Measurement, MeasurementsProvider } from "./lib/types";
+import { Measurement } from "./lib/types";
 import { columns } from "./components/shared/measurements-table/columns";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 const testValues: Measurement[] = [
   {

@@ -12,7 +12,7 @@ export const columns = [
     cell: ({ row }) => {
       const value = row.getValue("measurement_type");
       return (
-        <div className="grid justify-center">
+        <div className="grid justify-center ">
           <Badge
             variant="default"
             style={{ borderRadius: "10px", cursor: "pointer" }}
@@ -26,9 +26,9 @@ export const columns = [
   },
   {
     accessorKey: "measurement",
-    header: () => <div className="text-center">Medição</div>,
+    header: () => <div className="text-center w-max">Medição</div>,
     cell: ({ row }) => (
-      <div className="text-center">{row.getValue("measurement")}</div>
+      <div className="text-center w-max">{row.getValue("measurement")}</div>
     ),
   },
   {

@@ -8,39 +8,43 @@ import {
 
 function Cards() {
   return (
-    <div className="inline-flex gap-x-5 max-h-44 overflow-x-scroll overflow-y-hidden overscroll-contain">
-      <Card>
+    <div className="inline-flex justify-center gap-x-5 max-h-44 overflow-x-scroll overflow-y-hidden overscroll-contain">
+      <Card className="min-w-60 max-w-60">
         <CardHeader>
-          <CardTitle>Temperatura Média</CardTitle>
-          <CardDescription>Temperatura média nas últimas 24h.</CardDescription>
+          <CardTitle className="text-xl">Temperatura Média</CardTitle>
+          <CardDescription className="text-xs">
+            Temperatura média nas últimas 24h.
+          </CardDescription>
         </CardHeader>
         <CardContent>
-          <p>Card Content</p>
+          <p style={{ fontWeight: "bold" }}>Card Content</p>
         </CardContent>
       </Card>
-      <Card>
+      <Card className="min-w-60 max-w-60">
         <CardHeader>
-          <CardTitle>Vazão Média</CardTitle>
-          <CardDescription>Vazão média nas últimas 24h.</CardDescription>
+          <CardTitle className="text-xl">Vazão Média</CardTitle>
+          <CardDescription className="text-xs">
+            Vazão média nas últimas 24h.
+          </CardDescription>
         </CardHeader>
         <CardContent>
-          <p>Card Content</p>
+          <p style={{ fontWeight: "bold" }}>Card Content</p>
         </CardContent>
       </Card>
-      <Card>
+      <Card className="min-w-60 max-w-60">
         <CardHeader>
-          <CardTitle>Sensores</CardTitle>
+          <CardTitle className="text-xl">Sensores</CardTitle>
         </CardHeader>
         <CardContent>
-          <p>Card Content</p>
+          <p style={{ fontWeight: "bold" }}>Card Content</p>
         </CardContent>
       </Card>
-      <Card>
+      <Card className="min-w-60 max-w-60">
         <CardHeader>
-          <CardTitle>Última Medição</CardTitle>
+          <CardTitle className="text-xl">Última Medição</CardTitle>
         </CardHeader>
         <CardContent>
-          <p>Card Content</p>
+          <p style={{ fontWeight: "bold" }}>Card Content</p>
         </CardContent>
       </Card>
     </div>
