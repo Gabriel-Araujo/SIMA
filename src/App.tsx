@@ -1,8 +1,8 @@
 import "./App.css";
 import { Cards, DataTable } from "./components";
-import { Measurement } from "./lib/types";
+import { Measurement, MeasurementsProvider } from "./lib/types";
 import { columns } from "./components/shared/measurements-table/columns";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getMeasurements } from "./utils/services/measurements-services";
 
 function App() {
@@ -20,7 +20,11 @@ function App() {
           Dashboard
         </h1>
 
-        <Cards />
+        <MeasurementsProvider
+          value={useMemo(() => [measurements, setMeasurements], [measurements])}
+        >
+          <Cards />
+        </MeasurementsProvider>
         <DataTable data={measurements} columns={columns} />
       </main>
     </>
