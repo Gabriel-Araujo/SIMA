@@ -48,9 +48,9 @@ function formatMeasurement(measurement: Measurement) {
     case "Temperatura":
       return `Temperatura em ${measurement.measurement}ºC`;
     case "Volume":
-      if (measurement.measurement == "1") return "Volume Baixo";
-      else if (measurement.measurement == "2") return "Volume Médio";
-      else if (measurement.measurement == "3") return "Volume Alto";
+      if (measurement.measurement == "1.00") return "Volume Baixo";
+      else if (measurement.measurement == "2.00") return "Volume Médio";
+      else if (measurement.measurement == "3.00") return "Volume Alto";
       else return "Falha ao ler o volume";
     case "Vazão":
       return `Vazão de ${measurement.measurement}L/min`;
