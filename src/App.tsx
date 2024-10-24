@@ -1,15 +1,20 @@
 import "./App.css";
 import { Cards, DataTable } from "./components";
-import { Measurement, MeasurementsProvider } from "./lib/types";
+import { MeasurementsProvider } from "./lib/types";
 import { columns } from "./components/shared/measurements-table/columns";
 import { useEffect, useMemo, useState } from "react";
-import { getMeasurements } from "./utils/services/measurements-services";
+import { getRawMeasurements } from "./utils/services/measurements-services";
+import { transformData } from "./utils/utils";
 
 function App() {
-  const [measurements, setMeasurements] = useState<Measurement[]>([]);
+  const [rawMeasurements, setRawMeasurements] = useState([]);
+  const measurements = useMemo(
+    () => transformData(rawMeasurements),
+    [rawMeasurements],
+  );
 
   useEffect(() => {
-    getMeasurements().then((data) => setMeasurements(data));
+    getRawMeasurements().then((data) => setRawMeasurements(data));
   }, []);
 
   return (
@@ -20,9 +25,7 @@ function App() {
           Dashboard
         </h1>
 
-        <MeasurementsProvider
-          value={useMemo(() => [measurements, setMeasurements], [measurements])}
-        >
+        <MeasurementsProvider value={measurements}>
           <Cards />
         </MeasurementsProvider>
         <DataTable data={measurements} columns={columns} />

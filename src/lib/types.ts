@@ -4,21 +4,28 @@ export interface Measurement {
   id: string;
   measurement: string;
   measurement_type: string;
-  timestamp: number;
+  timestamp: Date;
 }
 
-export function empty_measuremnt(): Measurement {
-  return {
-    id: "0",
-    measurement: "",
-    measurement_type: "",
-    timestamp: Date.now(),
-  };
+export interface FlowMeasurement {
+  id: number;
+  flow_rate: string;
+  measurement_date: string;
 }
 
-const MeasurementsContext = createContext<
-  [Measurement[], React.Dispatch<React.SetStateAction<Measurement[]>>]
->([[], () => {}]);
+export interface TemperaturesMeasurement {
+  id: number;
+  temperature_value: string;
+  measurement_date: string;
+}
+
+export interface VolumMeasurement {
+  id: number;
+  volume_value: string;
+  measurement_date: string;
+}
+
+const MeasurementsContext = createContext<Measurement[]>([]);
 
 const MeasurementsProvider = MeasurementsContext.Provider;
 

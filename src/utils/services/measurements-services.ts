@@ -55,4 +55,21 @@ async function getMeasurements() {
   }
 }
 
-export { getMeasurements };
+async function getRawMeasurements() {
+  const path = BASE_URL + "/get/all";
+
+  try {
+    return await axios(path, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    }).then((response) => response.data);
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
+export { getMeasurements, getRawMeasurements };
