@@ -44,7 +44,7 @@ function transformData(response: any): Measurement[] {
 }
 
 function formatMeasurement(measurement: Measurement) {
-  switch (measurement.measurement_type) {
+  switch (measurement?.measurement_type) {
     case "Temperatura":
       return `Temperatura em ${measurement.measurement}ºC`;
     case "Volume":
